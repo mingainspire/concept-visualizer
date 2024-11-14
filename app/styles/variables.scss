@@ -1,0 +1,28 @@
+// Z-index variables
+$zIndexMax: 9999;
+$zIndexHigh: 100;
+$zIndexMed: 50;
+$zIndexLow: 10;
+$zIndexMin: 1;
+
+// Theme variables
+:root {
+  // Dark mode colors
+  --bolt-background: #1a1a1a;
+  --bolt-background-depth-1: #242424;
+  --bolt-background-depth-2: #2a2a2a;
+  --bolt-text-primary: #ffffff;
+  --bolt-text-secondary: #a0a0a0;
+  --bolt-text-tertiary: #666666;
+  --bolt-border-color: #333333;
+  --bolt-focus-ring: #3b82f6;
+  
+  // Other theme variables
+  --bolt-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --bolt-monospace-font: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  --bolt-chat-min-width: 375px;
+  --bolt-chat-max-width: 768px;
+  --bolt-terminal-min-width: 200px;
+  --bolt-terminal-max-width: 600px;
+}
