@@ -1,5 +1,6 @@
 import { json, type ActionArgs } from '@remix-run/cloudflare';
 import { Form, useActionData } from '@remix-run/react';
+import { processConcept } from '~/services/llm/basic';
 
 export const loader = () => json({});
 
@@ -11,8 +12,10 @@ export async function action({ request }: ActionArgs) {
     return json({ error: 'Concept is required' }, { status: 400 });
   }
 
-  // For now, just return the concept - we'll add LLM processing later
-  return json({ concept });
+  // Now we'll use our basic LLM processing
+  const response = await processConcept(concept);
+
+  return json(response);
 }
 
 export default function Index() {
@@ -51,10 +54,17 @@ export default function Index() {
         </div>
       )}
 
-      {actionData?.concept && !actionData.error && (
+      {actionData?.processedConcept && !actionData.error && (
         <div className="mt-4 p-4 border rounded">
-          <h2 className="font-bold mb-2">Submitted Concept:</h2>
-          <p>{actionData.concept}</p>
+          <h2 className="font-bold mb-2">Processed Concept:</h2>
+          <p>{actionData.processedConcept}</p>
+        </div>
+      )}
+
+      {actionData?.visualizationData && !actionData.error && (
+        <div className="mt-4 p-4 border rounded">
+          <h2 className="font-bold mb-2">Visualization:</h2>
+          <p>{actionData.visualizationData.content}</p>
         </div>
       )}
     </div>

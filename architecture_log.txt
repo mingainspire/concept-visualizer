@@ -1,0 +1,2 @@
+Architecture Structure Log
+Remember to focus on the overall architecture structure, including the beginning, middle, and end. Don't get lost in the details.
